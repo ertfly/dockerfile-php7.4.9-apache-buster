@@ -8,3 +8,5 @@ RUN mkdir /app
 RUN a2dissite 000-default.conf default-ssl.conf
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2ensite 000-default.conf
+ADD http://www.cacert.org/certs/root.crt /usr/local/share/ca-certificates/cacert.crt
+RUN update-ca-certificates
