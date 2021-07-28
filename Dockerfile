@@ -13,4 +13,6 @@ RUN a2ensite 000-default.conf
 ADD http://www.cacert.org/certs/root.crt /usr/local/share/ca-certificates/cacert.crt
 RUN update-ca-certificates
 RUN composer self-update --snapshot
+RUN ln -s /usr/local/bin/php /usr/bin/php
+RUN chmod +x /usr/bin/php
 WORKDIR /app
