@@ -8,6 +8,7 @@ RUN a2enmod headers
 RUN mkdir /app
 RUN a2dissite 000-default.conf default-ssl.conf
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN pecl install mongodb
 COPY php.ini /usr/local/etc/php/php.ini
 COPY openssl.cnf /etc/ssl/openssl.cnf
 RUN a2ensite 000-default.conf
