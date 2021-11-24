@@ -2,7 +2,7 @@ FROM php:7.4.9-apache-buster
 RUN apt-get update && apt-get install -y libpq-dev curl libcurl4-openssl-dev libxml2-dev zlib1g-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev openssl zip unzip git libonig-dev libtidy-dev libzip-dev nano libjpeg-dev libfreetype6-dev pkg-config libssl-dev libmongoc-1.0-0
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install curl dom gd mbstring pdo pdo_mysql pdo_pgsql pgsql simplexml soap tidy zip
+    && docker-php-ext-install curl dom gd mbstring pdo pdo_mysql pdo_pgsql pgsql simplexml soap tidy zip sockets
 RUN a2enmod rewrite
 RUN a2enmod headers
 RUN mkdir /app
