@@ -10,9 +10,9 @@ RUN mkdir /app
 RUN a2dissite 000-default.conf default-ssl.conf
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN pecl install mcrypt && docker-php-ext-enable mcrypt
-RUN pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug
+# RUN pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug
 COPY php.ini /usr/local/etc/php/php.ini
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+# COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 COPY openssl.cnf /etc/ssl/openssl.cnf
 RUN a2ensite 000-default.conf
 ADD http://www.cacert.org/certs/root.crt /usr/local/share/ca-certificates/cacert.crt
